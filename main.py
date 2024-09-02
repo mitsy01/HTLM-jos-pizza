@@ -10,12 +10,12 @@ def index():
 
 
 @app.get("/menu/")
-def index():
+def menu():
     return render_template("menu.html")
 
 
 @app.get("/contacts/")
-def index():
+def contacts():
     return render_template("contacts.html")
 
 
