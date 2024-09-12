@@ -11,7 +11,7 @@ def index():
     return render_template("index.html", title="")
 
 
-@app.get("/menu-baikaino/")
+@app.get("/menu/")
 def menu():
     pizzas = [
         {"name": "Суйгетсу", "price": 50, "ingredients": "ковбаса, сир, зелень, соус тартар"},
