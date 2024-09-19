@@ -5,5 +5,4 @@
 {% block content %}
 
 {{ macros.sort_price(pizzas) }}
-<h1><em>Ціни</em>: {{ pizzas|sum(attribute="price") }}</h1>
 {% endblock content %}

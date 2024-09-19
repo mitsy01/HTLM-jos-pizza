@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
 import random
-
+from data import db
 
 app = Flask(__name__)
 
@@ -13,12 +13,8 @@ def index():
 
 @app.get("/menu/")
 def menu():
-    pizzas = [
-        {"name": "Суйгетсу", "price": 50, "ingredients": "ковбаса, сир, зелень, соус тартар"},
-        {"name": "Моцарела", "price": 56, "ingredients": "сир, соус, зелень"},
-        {"name": "Чотири ковбаси", "price": 47, "ingredients": "ковбаса 'Перероні', ковбаса 'Мадер', ковбаса 'Тульчин', ковбаса 'Бандерівська'"},
-        {"name": "Хічіго", "price": 69, "ingredients": "полуниця, ананас, шоколад, зефір"}
-    ]
+    pizzas = db.get_pizzas()
+    
     countext = {
         "pizzas": pizzas,
         "title": "Шикайне меню"

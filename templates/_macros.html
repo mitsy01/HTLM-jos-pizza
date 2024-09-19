@@ -30,11 +30,11 @@
     {% if request.args.get("sort") %}
     <a href="{{ request.path }}">Вимкнути сортування</a>
 
-        {% for pizza in pizzas|sort(attribute="price") %}
+        {% for pizza in pizzas  %}
         <tr>
-            <td>{{ pizza.name }}</td>
-            <td>{{ pizza.ingredients }}</td>
-            <td>{{ pizza.price }}</td>
+            <td>{{ pizza[1] }}</td>
+            <td>{{ pizza[2] }}</td>
+            <td>{{ pizza[3] }}</td>
         </tr>
         {% endfor %}
 
@@ -42,9 +42,9 @@
     <a href="{{ request.path }}?sort=True">Ввімкнути сортування</a>
         {% for pizza in pizzas %}
         <tr>
-            <td>{{ pizza.name }}</td>
-            <td>{{ pizza.ingredients }}</td>
-            <td>{{ pizza.price }}</td>
+            <td>{{ pizza[1] }}</td>
+            <td>{{ pizza[2] }}</td>
+            <td>{{ pizza[3] }}</td>
         </tr>
         {% endfor %}
     {% endif %}
