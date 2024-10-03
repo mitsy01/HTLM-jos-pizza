@@ -1,35 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask
 
-import random
-from data import db
+from routes.pizza import pizza_route
+from models.pizza import Pizza
+from models.ingredient import Ingredient
+from models.base import create_db
 
 app = Flask(__name__)
+app.register_blueprint(pizza_route)
 
 
-@app.get("/")
-def index():
-    return render_template("index.html", title="")
-
-
-@app.get("/menu/")
-def menu():
-    pizzas = db.get_pizzas()
-    
-    countext = {
-        "pizzas": pizzas,
-        "title": "Шикайне меню"
-    }
-    return render_template("menu.html", **countext)
-
-
-@app.get("/contacts/")
-def contacts():
-    context = {
-        "first_number": random.randint(101, 999),
-        "second_number": random.randint(1001, 9999)
-    }
-    return render_template("contacts.html", **context)
-
-
-if __name__ == "__main__":
+if __name__ == "__mine__":
+    create_db()
     app.run(debug=True)
