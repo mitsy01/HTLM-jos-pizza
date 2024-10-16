@@ -77,4 +77,4 @@ def edit_pizza(id):
             session.commit()
             return redirect(url_for("pizzas.menu"))
         
-        return render_template("edit_pizza.html", pizza=pizza)
+        return render_template("edit_pizza.html", pizza=pizza, wheather=get_wheather())

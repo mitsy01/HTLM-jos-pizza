@@ -21,7 +21,7 @@
                 {% endfor %}
             </td>
         <td><a href="{{ url_for('pizzas.del_pizza', id=pizza.id)}}" class="btn btn-danger">Видалити піцу</a></td>
-        <td><a href="{{ url_for('pizzas.edit_pizza', id=pizzas.id)}}" class="btn btn-danger">Редагувати піцу</a></td>
+        <td><a href="{{ url_for('pizzas.edit_pizza', id=pizza.id)}}" class="btn btn-danger">Редагувати піцу</a></td>
         </tr>
     {% endfor %}
 </table>
