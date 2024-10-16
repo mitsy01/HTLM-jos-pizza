@@ -9,6 +9,6 @@ app = Flask(__name__)
 app.register_blueprint(pizza_route)
 
 
-if __name__ == "__mine__":
+if __name__ == "__main__":
     create_db()
     app.run(debug=True)

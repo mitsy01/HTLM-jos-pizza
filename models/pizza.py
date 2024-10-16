@@ -12,5 +12,5 @@ class Pizza(Base):
     
     id: Mapped[int] = mapped_column("id", primary_key=True)
     name: Mapped[str] = mapped_column(String(50))
-    price: Mapped[float] = mapped_column
+    price: Mapped[float] = mapped_column()
     ingredients: Mapped[List[Ingredient]] = relationship(secondary=pizza_ingred_assoc_table)

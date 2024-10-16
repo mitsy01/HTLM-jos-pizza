@@ -1,6 +1,6 @@
 
 <nav>
-{% for menu_item in ["index", "menu"]%}
+{% for menu_item in ["pizzas.index", "pizzas.menu"]%}
 <button>
     <a href="{{ url_for(menu_item) }}">{{ menu_item|upper}}</a>
 </button>
