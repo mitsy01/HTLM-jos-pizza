@@ -78,3 +78,27 @@ def edit_pizza(id):
             return redirect(url_for("pizzas.menu"))
         
         return render_template("edit_pizza.html", pizza=pizza, wheather=get_wheather())
+    
+@pizza_route.get("/poll/")
+def poll():
+    with Session() as session:
+        pizzas = session.query(Pizza).all
+        question = ""
+    return render_template("poll.html", question=question, pizzas=pizzas)
+
+@pizza_route.get("/add_vote/")
+def add_vote():
+    pizza = request.args.get("pizza")
+    
+    with open("data/answers.txt", "a", encoding="utf-8") as file:
+        file.write(pizza + "\n")
+    
+    return redirect(url_for("pizzas.results"))
+
+
+@pizza_route.get("/results/")
+def resultss():
+    with open("data/answers.txt", "r", encoding="utf-8") as file:
+        answers = file.readlines()
+        
+    return render_template("results.html", answers=answers)
