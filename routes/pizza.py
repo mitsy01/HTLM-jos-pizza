@@ -97,7 +97,7 @@ def add_vote():
 
 
 @pizza_route.get("/results/")
-def resultss():
+def results():
     with open("data/answers.txt", "r", encoding="utf-8") as file:
         answers = file.readlines()
         
