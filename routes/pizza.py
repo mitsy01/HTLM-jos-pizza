@@ -82,7 +82,7 @@ def edit_pizza(id):
 @pizza_route.get("/poll/")
 def poll():
     with Session() as session:
-        pizzas = session.query(Pizza).all
+        pizzas = session.query(Pizza).all()
         question = ""
     return render_template("poll.html", question=question, pizzas=pizzas)
 
