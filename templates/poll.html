@@ -1,7 +1,7 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<from action="{{ url_for('pizzas.add_vote' )}}">
+<form action="{{ url_for('pizzas.add_vote' )}}">
     <label>{{ question }}</label>
     {% for pizza in pizzas %}
         <div class="form-check">
@@ -13,4 +13,4 @@
     {% endfor %}
     <input type="submit">
  </form>
-{% endblock content %}
+{% endblock content %} 

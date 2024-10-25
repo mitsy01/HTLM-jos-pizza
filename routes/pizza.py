@@ -83,7 +83,7 @@ def edit_pizza(id):
 def poll():
     with Session() as session:
         pizzas = session.query(Pizza).all()
-        question = ""
+        question = "Яка найкраща піца з нашого меню?"
     return render_template("poll.html", question=question, pizzas=pizzas)
 
 @pizza_route.get("/add_vote/")
