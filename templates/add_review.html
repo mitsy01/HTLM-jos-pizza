@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="{{ url_for('add_review') }}" method="post">
+    <div class="form-group">
+        {{ form.owner.label }}
+        {{ form.owner(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.text.label }}
+        {{ form.text(class="form-control") }}
+    </div>
+    <div class="form-group">
+    {{ form.mark.label }}
+    {{ form.mark(class="form-control") }}
+    </div>
+    {{ form.submit(class="bnt bnt-success") }}
+</form>
+{% endblock contnet %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for review in reviews %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ review.owner }}</td>
+            <td>{{ review.text }}</td>
+            <td>{{ review.mark.value }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock contetnt %}
