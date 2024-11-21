@@ -1,12 +1,12 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect
 
 from models.base import Session
-from models.reviews import Review
-
+from models.reviews import Review, Mark
+from forms.forms import ReviewForm
 
 review_route = Blueprint("reviews", __name__)
 
-@app.route("/review/", methods=["GET", "POST"])
+@review_route("/add_review/", methods=["GET", "POST"])
 def add_review():
     with Session() as session:
         form = ReviewForm()
@@ -27,7 +27,7 @@ def add_review():
             
         return render_template("add_review.html", form=form)
     
-@app.get("/reviews/")
+@review_route.get("/reviews/")
 def show_reviews():
     with Session() as session:
         reviews = session.query(Review).all()
