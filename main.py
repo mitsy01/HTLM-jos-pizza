@@ -9,6 +9,7 @@ from models.base import create_db
 app = Flask(__name__)
 app.register_blueprint(pizza_route)
 app.register_blueprint(review_route)
+app.secret_key = "5;33:1745!/?%"
 
 
 if __name__ == "__main__":

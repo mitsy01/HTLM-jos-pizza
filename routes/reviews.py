@@ -6,17 +6,17 @@ from forms.forms import ReviewForm
 
 review_route = Blueprint("reviews", __name__)
 
-@review_route("/add_review/", methods=["GET", "POST"])
+@review_route.route("/add_review/", methods=["GET", "POST"])
 def add_review():
     with Session() as session:
         form = ReviewForm()
         marks = session.query(Mark).all()
         if request.method == "POST":
-            mark_id = form.mark.data
+            marks_id = form.mark.data
             text = form.text.data
             owner = form.owner.data
             
-            review = Review(text=text, owner=owner, mark_id=mark_id)
+            review = Review(text=text, owner=owner, marks_id=marks_id)
             session.add(review)
             session.commit()
             return redirect("/reviews/")
